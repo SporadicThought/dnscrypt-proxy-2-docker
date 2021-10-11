@@ -1,10 +1,18 @@
-version: '1'
+version: '3.3'
 services:
-  dnscrypt-proxy:
-    restart: unless-stopped
-    image: xtr0py/dnscrypt-proxy-2-docker
-    container_name: dnscrypt-proxy-2-docker
-    ports:
-      - "53:53/udp"
-    #volumes:
-    #  - ./config:/config
+    dnscrypt-proxy:
+#        ports:
+#           - '53:53/udp'
+#        volumes:
+#            - '$HOME/dnscrypt-proxy:/config'
+        image: xtr0py/dnscrypt-proxy-2-docker
+        networks:
+            dnscrypt_network:
+                ipv4_address: 172.172.172.53
+        restart: always
+networks:
+    dnscrypt_network:
+        ipam:
+            driver: default
+            config:
+                - subnet: "172.172.172.0/24"
