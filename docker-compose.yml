@@ -1,9 +1,8 @@
-# This version of docker-compose will start dnscrypt-proxy-2-docker at 172.172.172.53.
-# Point your DNS servers in NetworkManager or /etc/resolv.conf to 172.172.172.53
-# Uncomment the lines below, without otherwisse altering the spacing of this file.
-# Uncommenting the 'ports:' directive will cause dnscrypt-proxy-2-docker to listen on localhost port 53 (0.0.0.0:53);
-# that will only work if port 53 isn't already bound.
-# uncomment the 'volumes:' directive to specify a custom dnscrypt-proxy.toml
+# This version of docker-compose will start dnscrypt-proxy-2-docker at '172.172.172.53'.
+# Point your DNS servers in NetworkManager or /etc/resolv.conf to '172.172.172.53'.
+# When removing the comment hashes: make sure the line shifts left by 1 character.
+# Uncomment 'ports:' to listen on localhost port 53 (0.0.0.0:53); fails when port 53 on localhost is already bound.
+# uncomment 'volumes:' to specify a custom dnscrypt-proxy.toml
 version: '3.3'
 services:
     dnscrypt-proxy:
