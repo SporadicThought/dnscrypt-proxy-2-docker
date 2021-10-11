@@ -38,3 +38,5 @@ networks:
                 - subnet: "172.172.172.0/24"
                 
 ```
+
+NOTE: This will break docker's ability to communicate over DNS for any containers that are not on the dnscrypt_network network. The roadmap is to figure a workaround.
