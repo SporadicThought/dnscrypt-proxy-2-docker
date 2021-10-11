@@ -1,10 +1,16 @@
+# This version of docker-compose will start dnscrypt-proxy-2-docker at 172.172.172.53.
+# Point your DNS servers in NetworkManager or /etc/resolv.conf to 172.172.172.53
+# Uncomment the lines below, without otherwisse altering the spacing of this file.
+# Uncommenting the 'ports:' directive will cause dnscrypt-proxy-2-docker to listen on localhost port 53 (0.0.0.0:53);
+# that will only work if port 53 isn't already bound.
+# uncomment the 'volumes:' directive to specify a custom dnscrypt-proxy.toml
 version: '3.3'
 services:
     dnscrypt-proxy:
 #        ports:
 #           - '53:53/udp'
 #        volumes:
-#            - '$HOME/dnscrypt-proxy:/config'
+#           - '/path/to/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml'
         image: xtr0py/dnscrypt-proxy-2-docker
         networks:
             dnscrypt_network:
