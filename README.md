@@ -7,10 +7,10 @@ This is a Docker image containing [DNSCrypt Proxy 2.x](https://github.com/jedisc
 This image comes with a configuration which:
 - [x] Looks up queries via DNS-over-HTTPS (DoH) and DNSCrypt
 - [x] Use only DNSSEC, no logging, no filtering servers
-- [x] Listens on all interfaces
 - [x] Listens at 172.172.172.53 (Minimal change required to your Distro)
+- [x] Easily re-configured to listen on localhost or use custom .toml 
 - [x] Excludes Cloudflare, Google, and Yandex servers
-- [x] updated DNScrypt-proxy 2.0.45 
+- [x] DNScrypt-proxy 2.0.45 
 - [x] Uses public-resolvers v3
 
 ```yaml
