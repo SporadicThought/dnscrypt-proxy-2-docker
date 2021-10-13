@@ -39,4 +39,5 @@ networks:
                 
 ```
 
-NOTE: This will break docker's ability to communicate over DNS for any containers that are not on the dnscrypt_network network. The roadmap is to figure a workaround.
+NOTE: By default this container will not be able to communicate with other stacks on the docker network. This is because it is on the 172.172.172.0/24 network. Any other container will be on a different segment and therefore not accessible. Exposing port 53 on localhost should provide dnscrypt-proxy resolution (uncomment the 'port:' directive in this docker-compose.yml) to any docker stack asking for it.
+This introduces a new problem. You have to shut down your current dns service listening on port 53. In Ubuntu, this can be challenging. One solutions is to mask systemd-resolved and configure NetworkManager to stop managing /etc/resolv.conf. In Fedora 34, a simple solution is to mask systemd-resolved. Depending on the distro being used, these solutoins will vary. I plan on figuring out how to get docker to use the dnscrpyt-proxy-2-docker as its dns so that workarounds will not be necessary.
